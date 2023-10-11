@@ -1,3 +1,4 @@
+import math 
 
 class Value:
     """ stores a single scalar value and its gradient """
@@ -51,6 +52,13 @@ class Value:
 
         return out
 
+    def tanh(self):
+        out = Value(math.tanh(sel.data), (self,), 'tanh'
+        def _backward():
+            self.grad += (1 - out.data**2) * out.grad
+        out._backward = _backward
+        return out
+        
     def backward(self):
 
         # topological order all of the children in the graph
